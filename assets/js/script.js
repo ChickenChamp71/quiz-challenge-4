@@ -20,6 +20,8 @@ bottomText.setAttribute("id", "bottom-text");
 main.appendChild(bottomText);
 answerList.setAttribute("style", "text-align:center; border-bottom: none");
 
+var scoreList = document.getElementById("score-list");
+
 var initialForm = document.querySelector("#initial-form");
 
 var inputLabel = document.createElement("label");
@@ -37,25 +39,23 @@ initialInput.setAttribute("maxlength", "2");
 initialForm.appendChild(initialInput);
 
 var submitBtn = document.createElement("button");
-main.appendChild(submitBtn);
+initialForm.appendChild(submitBtn);
 submitBtn.setAttribute("class", "btn");
 submitBtn.setAttribute("style", "display:none");
 
 var goBackBtn = document.createElement("button");
+scoreList.appendChild(goBackBtn);
 goBackBtn.setAttribute("class", "btn");
+goBackBtn.setAttribute("id", "go-back");
 goBackBtn.setAttribute("style", "display:none");
 goBackBtn.addEventListener("click", restartQuiz);
 
 var clearHighScoreBtn = document.createElement("button");
+scoreList.appendChild(clearHighScoreBtn);
 clearHighScoreBtn.setAttribute("class", "btn");
 clearHighScoreBtn.setAttribute("style", "display:none");
 
 var questionSet = 1;
-var userScoreRecall = [];
-var userScore = {
-    highScore: time,
-    initials: initialInput.value
-}
 var isGameWon = false;
 //GIVEN I am taking a code quiz
 //WHEN I click the start button
@@ -125,104 +125,104 @@ function buttonStart() {
 function firstQuestion() {
     subTextEl.textContent = "";
     mainEl.setAttribute("style", "font-size:250%");
-    mainEl.textContent = "How much wood could a wood chuck chuck if a wood chuck could chuck wood?";
+    mainEl.textContent = "When was Voldemort's birthday?";
 
-    answer1.textContent = "Answer One One Placeholder";
+    answer1.textContent = "December 2nd, 1933";
     answer1.addEventListener("click", wrongAnswer);
 
-    answer2.textContent = "Answer One Two Placeholder";
+    answer2.textContent = "December 31st, 1926";
     answer2.addEventListener("click", rightAnswer);
 
-    answer3.textContent = "Answer One Three Placeholder";
+    answer3.textContent = "June 4th, 1908";
     answer3.addEventListener("click", wrongAnswer);
 
-    answer4.textContent = "Answer One Four Placeholder";
+    answer4.textContent = "August 17th, 1908";
     answer4.addEventListener("click", wrongAnswer);
 }
 
 function secondQuestion() {
     answerList.setAttribute("style", "display: block");
-    mainEl.textContent = "How much wood could a wood chuck chuck if a wood chuck could chuck wood?";
+    mainEl.textContent = "What was Lord Voldemort's birth name?";
 
-    answer1.textContent = "Answer One One Placeholder";
+    answer1.textContent = "Tom Morfin Riddle";
 
     answer2.removeEventListener("click", rightAnswer);
-    answer2.textContent = "Answer One Two Placeholder";
+    answer2.textContent = "Tom Merope Riddle";
     answer2.addEventListener("click", wrongAnswer);
 
-    answer3.textContent = "Answer One Three Placeholder";
+    answer3.textContent = "Thomas Morfin Riddle";
 
     answer4.removeEventListener("click", wrongAnswer);
-    answer4.textContent = "Answer One Four Placeholder";
+    answer4.textContent = "Tom Marvolo Riddle";
     answer4.addEventListener("click", rightAnswer);
 }
 
 function thirdQuestion() {
     answerList.setAttribute("style", "display: block");
-    mainEl.textContent = "How much wood could a wood chuck chuck if a wood chuck could chuck wood?";
+    mainEl.textContent = "How old was Voldemort when he made his first Horcrux?";
 
-    answer1.textContent = "Answer One One Placeholder";
+    answer1.textContent = "20";
 
-    answer2.textContent = "Answer One Two Placeholder";
+    answer2.textContent = "14";
 
-    answer3.textContent = "Answer One Three Placeholder";
+    answer3.textContent = "24";
 
-    answer4.textContent = "Answer One Four Placeholder";
+    answer4.textContent = "16";
 }
 
 function fourthQuestion() {
     answerList.setAttribute("style", "display: block");
-    mainEl.textContent = "How much wood could a wood chuck chuck if a wood chuck could chuck wood?";
+    mainEl.textContent = "What color are Voldemort's eyes?";
 
     answer1.removeEventListener("click", wrongAnswer);
-    answer1.textContent = "Answer One One Placeholder";
+    answer1.textContent = "Red";
     answer1.addEventListener("click", rightAnswer);
 
-    answer2.textContent = "Answer One Two Placeholder";
+    answer2.textContent = "Blue";
 
-    answer3.textContent = "Answer One Three Placeholder";
+    answer3.textContent = "Brown";
 
     answer4.removeEventListener("click", rightAnswer);
-    answer4.textContent = "Answer One Four Placeholder";
+    answer4.textContent = "Green";
     answer4.addEventListener("click", wrongAnswer);
 }
 
 function fifthQuestion() {
     answerList.setAttribute("style", "display: block");
 
-    mainEl.textContent = "How much wood could a wood chuck chuck if a wood chuck could chuck wood?";
+    mainEl.textContent = "What potion was his father under when he was concieved to make him unable to feel love?";
 
     answer1.removeEventListener("click", rightAnswer);
-    answer1.textContent = "Answer One One Placeholder";
+    answer1.textContent = "Felix Felicis";
     answer1.addEventListener("click", wrongAnswer);
 
-    answer2.textContent = "Answer One Two Placeholder";
+    answer2.textContent = "Polyjuice";
 
     answer3.removeEventListener("click", wrongAnswer);
-    answer3.textContent = "Answer One Three Placeholder";
+    answer3.textContent = "Ammortentia";
     answer3.addEventListener("click", rightAnswer);
 
-    answer4.textContent = "Answer One Four Placeholder";
+    answer4.textContent = "Veritaserum";
 }
 
 function sixthQuestion() {
     answerList.setAttribute("style", "display: block");
-    mainEl.textContent = "How much wood could a wood chuck chuck if a wood chuck could chuck wood?";
+    mainEl.textContent = "Who did Voldemort kill to create the Hufflepuff's Cup Horcrux?";
 
     answer1.removeEventListener("click", wrongAnswer);
-    answer1.textContent = "Answer One One Placeholder";
+    answer1.textContent = "Tom Riddle Sr.";
     answer1.addEventListener("click", lastWrong);
 
     answer2.removeEventListener("click", wrongAnswer);
-    answer2.textContent = "Answer One Two Placeholder";
+    answer2.textContent = "Hepzibah Smith";
     answer2.addEventListener("click", lastRight);
 
     answer3.removeEventListener("click", rightAnswer);
-    answer3.textContent = "Answer One Three Placeholder";
+    answer3.textContent = "Horace Slughorn";
     answer3.addEventListener("click", lastWrong);
 
     answer4.removeEventListener("click", wrongAnswer);
-    answer4.textContent = "Answer One Four Placeholder";
+    answer4.textContent = "Moaning Myrtle (Myrtle Warren)";
     answer4.addEventListener("click", lastWrong);
 }
 
@@ -298,49 +298,59 @@ function yourScore() {
     submitBtn.addEventListener("click", submitAndScore);
 }
 
+
+
 var highScoreList = document.createElement("ul");
-main.appendChild(highScoreList);
+scoreList.appendChild(highScoreList);
 highScoreList.setAttribute("id", "high-score-list");
 highScoreList.setAttribute("style", "text-align:start");
 
-function storeScores() {
-    localStorage.setItem("userScoreRecall", JSON.stringify(userScoreRecall));
-}
 
 function submitAndScore(event) {
 
     event.preventDefault();
 
-    var initialText = initialInput.value;
-
-    if (initialText === "") {
-        return;
-    }
-
-    userScoreRecall.push(initialText);
-    initialText.value = "";
-
     storeScores();
     scorePage();
 }
 
-function renderScores() {
-    highScoreList.innerHTML = "";
-    
+function storeScores() {
 
-    for (let i = 0; i < userScoreRecall.length; i++) {
-        var userScoreRecall = userScoreRecall[i];
+    var scores = JSON.parse(localStorage.getItem("scores"));
 
-        var scoreLi = document.createElement("li");
-        scoreLi.textContent = userScoreRecall;
-        scoreLi.setAttribute("data-index", i);
+    if (scores !== null) {
 
-        highScoreList.appendChild(scoreLi);
+        var userScore = {
+        highScore: time,
+        initials: initialInput.value
+        }
+
+        scores.push(userScore);
+
+        console.log(scores);
+
+        localStorage.setItem("scores", JSON.stringify(scores));
+
+    } else {
+
+        var scores = [];
+
+        var userScore = {
+            highScore: time,
+            initials: initialInput.value
+        }
+
+        scores.push(userScore);
+
+        console.log(scores);
+
+        localStorage.setItem("scores", JSON.stringify(scores));
+
     }
 }
 
 function scorePage() {
-    init();
+    renderScores();
 
     console.log("vee <3");
     mainEl.textContent = "High Scores 🐍";
@@ -351,27 +361,55 @@ function scorePage() {
     inputLabel.setAttribute("style", "display:none");
     initialInput.setAttribute("style", "display:none");
     submitBtn.setAttribute("style", "display:none");
-    goBackBtn.setAttribute("style", "display:block");
+    goBackBtn.setAttribute("style", "display:inline-block");
     goBackBtn.textContent = "Go Back";
     goBackBtn.addEventListener("click", restartQuiz);
-    clearHighScoreBtn.setAttribute("style", "display:block");
+    clearHighScoreBtn.setAttribute("style", "display:inline-block");
     clearHighScoreBtn.textContent = "Clear High Scores";
     clearHighScoreBtn.addEventListener("click", clearHighScores);
 }
 
-function init() {
+function renderScores() {  
 
-    var storedScores = JSON.parse(localStorage.getItem("userScoreRecall"));
+    var scores = JSON.parse(localStorage.getItem("scores"));
 
-    if (storedScores !== null) {
-        storedScores = userScoreRecall;
+    if (scores !== null) {
+
+        var liScores = JSON.parse(localStorage.getItem("scores"));
+
+        for (let i = 0; i < scores.length; i++) {
+            console.log("mood");
+            liScores[i] = document.createElement("li");
+            liScores[i].setAttribute("class", "score-initials");
+            console.log(scores[i]);
+            highScoreList.appendChild(liScores[i]);
+            liScores[i].setAttribute("data-index", i);
+            liScores[i].textContent = [i + 1] + ". " + scores[i].initials + " - " + scores[i].highScore;
+        }
     }
-    
-    renderScores();
+    mainEl.textContent = "High Scores 🐍";
+    highScoreClick.setAttribute("style", "display:none");
+    isGameWon = true;
+    timeBar.setAttribute("style", "display:none");
+    start.setAttribute("style", "display:none");
+    subTextEl.setAttribute("style", "display:none");
+    answerList.setAttribute("style", "display:none");
+    bottomText.setAttribute("style", "display:none");
+    inputLabel.setAttribute("style", "display:none");
+    initialInput.setAttribute("style", "display:none");
+    submitBtn.setAttribute("style", "display:none");
+    goBackBtn.setAttribute("style", "display:inline-block");
+    goBackBtn.textContent = "Go Back";
+    goBackBtn.addEventListener("click", restartQuiz);
+    clearHighScoreBtn.setAttribute("style", "display:inline-block");
+    clearHighScoreBtn.textContent = "Clear High Scores";
+    clearHighScoreBtn.addEventListener("click", clearHighScores);
 }
 
 function clearHighScores() {
-
+    localStorage.clear();
+    var scoreInitials = document.querySelector(".score-initials");
+    scoreInitials.setAttribute("style", "display:none");
 }
 
 function restartQuiz() {

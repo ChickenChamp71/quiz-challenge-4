@@ -19,6 +19,7 @@ header {
     justify-content: space-between;
     padding: 10px;
     background-color: var(--main-color);
+    height: 25px;
 }
 
 a {
@@ -84,4 +85,16 @@ cite {
     background-color: var(--secondary-color);
     color: var(--bg-color);
     border: none;
+}
+
+.score-initials {
+    border: 5px solid var(--secondary-color);
+    background-color: var(--bg-color);
+    padding: 10px;
+    font-size: medium;
+    margin-top: 10px;
+}
+
+#go-back {
+    margin-right: 10px;
 }
